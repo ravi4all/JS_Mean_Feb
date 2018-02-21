@@ -6,8 +6,11 @@ function init(){
     userpwd = document.querySelector("#userpwd");
     confpwd = document.querySelector("#confpwd");
     span = document.getElementsByTagName("span");
+    file = document.querySelector("#file");
     username.addEventListener("blur", blankCheck);
     userpwd.addEventListener("keyup", passwordStrength);
+    file.addEventListener("change",uploadImage);
+    usermail.addEventListener("change", validateEmail);
 }
 
 function blankCheck(){
@@ -17,6 +20,12 @@ function blankCheck(){
     else {
         span[0].innerHTML = "";
     }
+}
+
+function uploadImage(){
+    img = document.querySelector("#image");
+    imageName = file.files[0].name;
+    img.src = 'images/'+imageName;
 }
 
 function passwordStrength(){
@@ -45,4 +54,31 @@ function passwordStrength(){
     else {
         span[2].innerHTML = "";
     }
+}
+
+function redirect(){
+    event.preventDefault();
+}
+
+function validateEmail(){
+    var str = usermail.value;
+    // console.log(isBlank(str));
+    if(isBlank(str)){
+        span[1].innerHTML = "";
+    }
+    else {
+        span[1].innerHTML = "Please fill something";
+    }
+}
+
+function isBlank(str){
+    return (/[^\s]/.test(str))
+}
+
+// function pwdValid(){
+//     return (/[A-Z]{1}\w+/.test())
+// }
+
+function checkEmail(str){
+    return (/\w+([@]{1})+\w+[.]+\w+/.test(str))
 }

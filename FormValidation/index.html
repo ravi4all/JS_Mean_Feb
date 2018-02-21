@@ -30,7 +30,7 @@
 
     <h1>Form Validations</h1>
 
-    <form action="login.html">
+    <form action="login.html" onsubmit="redirect()">
         <table>
             <tr>
                 <td><label for="username">Enter Name</label></td>
@@ -72,6 +72,12 @@
                 </td>
             </tr>
             <tr>
+                <td>Choose File</td>
+                <td>
+                    <input type="file" id="file">
+                </td>
+            </tr>
+            <tr>
                 <td>
                     <input type="reset">
                 </td>
@@ -81,6 +87,8 @@
             </tr>
         </table>
     </form>
+
+    <img src="" alt="" id="image">
     
 </body>
 </html>
